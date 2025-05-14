@@ -18,7 +18,7 @@ namespace BinaryConverter
             }
             catch
             {
-                Console.WriteLine("invalid IP format. Use 4 numbers (0-255) separated by dots.");
+                Console.WriteLine("invalid ip format. Use 4 numbers (0-255) separated by dots.");
             }
         }
 
