@@ -31,14 +31,10 @@ namespace BinaryConverter
                 Convert.ToString(int.Parse(octet), 2).PadLeft(8, '0')));
         }
     }
-    struct Program1
-    {
-        static void Main(string[] args)
-        {
-            DecimalToBinary.Run();
-        }
+    
     }
-}
+
+
 
 
 
