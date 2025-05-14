@@ -3,38 +3,32 @@ using System.Linq;
 
 namespace BinaryConverter
 {
-    public static class IPConverter
+    public static class DecimalToBinary
     {
         public static void Run()
         {
-            Console.WriteLine("IP Address Converter");
-            Console.Write("Enter IP address: ");
+            Console.WriteLine("Decimal to Binary Converter");
+            Console.Write("Enter decimal IP (e.g. 192.168.1.1): ");
             string ip = Console.ReadLine();
 
             try
             {
-                bool isBinary = ip.Split('.').All(octet => octet.All(c => c == '0' || c == '1'));
-                string result = isBinary ? BinaryToDecimal(ip) : DecimalToBinary(ip);
-                Console.WriteLine($"Converted: {result}");
+                string binary = ConvertDecimalToBinary(ip);
+                Console.WriteLine($"Converted: {binary}");
             }
             catch
             {
-                Console.WriteLine("Invalid IP format. Use either:\n" +
-                                "Decimal: 192.168.1.1\n" +
-                                "Binary: 11000000.10101000.00000001.00000001");
+                Console.WriteLine("Invalid IP format. Use 4 numbers (0-255) separated by dots.");
             }
         }
 
-        private static string DecimalToBinary(string ip)
+        public static string ConvertDecimalToBinary(string decimalIP)
         {
-            return string.Join(".", ip.Split('.').Select(octet =>
-                Convert.ToString(int.Parse(octet), 2).PadLeft(8, '0')));
-        }
+            string[] parts = decimalIP.Split('.');
+            if (parts.Length != 4) throw new ArgumentException("IP must have 4 parts");
 
-        private static string BinaryToDecimal(string ip)
-        {
-            return string.Join(".", ip.Split('.').Select(octet =>
-                Convert.ToInt32(octet, 2).ToString()));
+            return string.Join(".", parts.Select(octet =>
+                Convert.ToString(int.Parse(octet), 2).PadLeft(8, '0')));
         }
     }
 }
