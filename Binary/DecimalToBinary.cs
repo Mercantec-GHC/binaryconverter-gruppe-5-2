@@ -12,7 +12,7 @@ namespace BinaryConverter
             string ip = Console.ReadLine();
 
             try
-            {
+            {3
                 string binary = ConvertDecimalToBinary(ip);
                 Console.WriteLine($"Converted: {binary}");
             }
@@ -27,11 +27,10 @@ namespace BinaryConverter
             string[] parts = decimalIP.Split('.');
             if (parts.Length != 4) throw new ArgumentException("ip must have 4 parts");
 
-            return string.Join(".", parts.Select(octet =>
-                Convert.ToString(int.Parse(octet), 2).PadLeft(8, '0')));
+         
         }
-    }
-    
+   }
+
     }
 
 
