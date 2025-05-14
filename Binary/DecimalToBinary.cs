@@ -18,14 +18,14 @@ namespace BinaryConverter
             }
             catch
             {
-                Console.WriteLine("Invalid IP format. Use 4 numbers (0-255) separated by dots.");
+                Console.WriteLine("invalid IP format. Use 4 numbers (0-255) separated by dots.");
             }
         }
 
         public static string ConvertDecimalToBinary(string decimalIP)
         {
             string[] parts = decimalIP.Split('.');
-            if (parts.Length != 4) throw new ArgumentException("IP must have 4 parts");
+            if (parts.Length != 4) throw new ArgumentException("ip must have 4 parts");
 
             return string.Join(".", parts.Select(octet =>
                 Convert.ToString(int.Parse(octet), 2).PadLeft(8, '0')));
