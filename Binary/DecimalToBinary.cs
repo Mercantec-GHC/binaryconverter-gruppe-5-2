@@ -12,7 +12,7 @@ namespace BinaryConverter
             string ip = Console.ReadLine();
 
             try
-            {3
+            {
                 string binary = ConvertDecimalToBinary(ip);
                 Console.WriteLine($"Converted: {binary}");
             }
