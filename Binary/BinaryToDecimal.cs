@@ -11,34 +11,35 @@ namespace BinaryConverter
         public static void Run()
         {
             Console.WriteLine("Binary to Decimal Converter");
-            string binaryIP = "01111111.00000000.00000000.00000001";
-            Console.WriteLine($"Binary IP: {binaryIP}");
-            string decimalIP = ConvertBinaryToDecimal(binaryIP);
-            Console.WriteLine($"Decimal IP: {decimalIP}");
+           Console.WriteLine (ConvertBinaryToDecimal("01111111.00000000.00000000.00000001");
+            
         }
 
         public static string ConvertBinaryToDecimal(string binary)
         {
-            //biostrong = 10101010 => 170 - 128 +32 + 8 +2
-            //StringSequence 128 64 32 16 8 4 2 1
-            List<int> powerOfTwos = new List<int>() { 128, 64, 32, 16, 8, 4, 2, 1 };
-            string[] octets = binary.Split('.');
-            List<string> decimalOctets = new List<string>();
+            // binary =10101010 =170 - 128 +32 + 8+ 2
+            // BinarySequence = 128 + 64 + 32+ 16 + 8 + 4 + 2 + 1
+            List<int> PowerofTwos = new List<int>() { 128, 64, 32, 16, 8, 4, 2, 1 };
+            int sum = 0;
 
-            foreach (string octet in octets)
+            for(int i = 0; i <binary.Length; i++)
             {
-                int sum = 0;
-                for (int i = 0; i < octet.Length; i++)
-                {
-                    int digit = octet[i] - '0';
-                    int powerOfTwo = powerOfTwos[i];
-                    sum += digit * powerOfTwo;
-                }
-                decimalOctets.Add(sum.ToString());
+                Console.WriteLine("i" + i);
+                int Digit = binary[i] - '0';
+                Console.WriteLine(Digit);
+
+                int PowerOfTwo = PowerofTwos[i];
+                Console.WriteLine(PowerOfTwo);
+
+                sum += Digit+PowerOfTwo;
             }
 
-            return string.Join(".", decimalOctets);
-            string
+            
+
+
+
+            Console.WriteLine($"Example: {binary} => {sum}");
+            return sum;
         }
     }
 }
