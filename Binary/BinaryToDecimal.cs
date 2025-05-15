@@ -19,6 +19,8 @@ namespace BinaryConverter
 
         public static string ConvertBinaryToDecimal(string binary)
         {
+            //biostrong = 10101010 => 170 - 128 +32 + 8 +2
+            //StringSequence 128 64 32 16 8 4 2 1
             List<int> powerOfTwos = new List<int>() { 128, 64, 32, 16, 8, 4, 2, 1 };
             string[] octets = binary.Split('.');
             List<string> decimalOctets = new List<string>();
