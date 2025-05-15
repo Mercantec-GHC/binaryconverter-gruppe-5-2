@@ -11,13 +11,35 @@ namespace BinaryConverter
         public static void Run()
         {
             Console.WriteLine("Binary to Decimal Converter");
-            ConvertBinaryToDecimal("01111111.00000000.00000000.00000001");
+           Console.WriteLine (ConvertBinaryToDecimal("01111111.00000000.00000000.00000001");
+            
         }
 
         public static string ConvertBinaryToDecimal(string binary)
         {
-            Console.WriteLine($"Example: {binary} => 127.0.0.1");
-            return "127.0.0.1";
+            // binary =10101010 =170 - 128 +32 + 8+ 2
+            // BinarySequence = 128 + 64 + 32+ 16 + 8 + 4 + 2 + 1
+            List<int> PowerofTwos = new List<int>() { 128, 64, 32, 16, 8, 4, 2, 1 };
+            int sum = 0;
+
+            for(int i = 0; i <binary.Length; i++)
+            {
+                Console.WriteLine("i" + i);
+                int Digit = binary[0] - '0';
+                Console.WriteLine(Digit);
+
+                int PowerOfTwo = binary[1] - '0';
+                Console.WriteLine(PowerOfTwo);
+
+                sum += Digit+PowerOfTwo;
+            }
+
+            
+
+
+
+            Console.WriteLine($"Example: {binary} => {sum}");
+            return sum;
         }
     }
 }
