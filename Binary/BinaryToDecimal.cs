@@ -25,10 +25,10 @@ namespace BinaryConverter
             for(int i = 0; i <binary.Length; i++)
             {
                 Console.WriteLine("i" + i);
-                int Digit = binary[0] - '0';
+                int Digit = binary[i] - '0';
                 Console.WriteLine(Digit);
 
-                int PowerOfTwo = binary[1] - '0';
+                int PowerOfTwo = PowerofTwos[i];
                 Console.WriteLine(PowerOfTwo);
 
                 sum += Digit+PowerOfTwo;
