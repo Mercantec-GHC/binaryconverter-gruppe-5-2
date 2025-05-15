@@ -38,7 +38,7 @@ namespace BinaryConverter
             }
 
             return string.Join(".", decimalOctets);
-            string
+            
         }
     }
 }
