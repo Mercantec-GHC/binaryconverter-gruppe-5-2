@@ -11,35 +11,31 @@ namespace BinaryConverter
         public static void Run()
         {
             Console.WriteLine("Binary to Decimal Converter");
-           Console.WriteLine (ConvertBinaryToDecimal("01111111.00000000.00000000.00000001");
-            
+            string binaryIP = "01111111.00000000.00000000.00000001";
+            Console.WriteLine($"Binary IP: {binaryIP}");
+            string decimalIP = ConvertBinaryToDecimal(binaryIP);
+            Console.WriteLine($"Decimal IP: {decimalIP}");
         }
 
         public static string ConvertBinaryToDecimal(string binary)
         {
-            // binary =10101010 =170 - 128 +32 + 8+ 2
-            // BinarySequence = 128 + 64 + 32+ 16 + 8 + 4 + 2 + 1
-            List<int> PowerofTwos = new List<int>() { 128, 64, 32, 16, 8, 4, 2, 1 };
-            int sum = 0;
+            List<int> powerOfTwos = new List<int>() { 128, 64, 32, 16, 8, 4, 2, 1 };
+            string[] octets = binary.Split('.');
+            List<string> decimalOctets = new List<string>();
 
-            for(int i = 0; i <binary.Length; i++)
+            foreach (string octet in octets)
             {
-                Console.WriteLine("i" + i);
-                int Digit = binary[i] - '0';
-                Console.WriteLine(Digit);
-
-                int PowerOfTwo = PowerofTwos[i];
-                Console.WriteLine(PowerOfTwo);
-
-                sum += Digit+PowerOfTwo;
+                int sum = 0;
+                for (int i = 0; i < octet.Length; i++)
+                {
+                    int digit = octet[i] - '0';
+                    int powerOfTwo = powerOfTwos[i];
+                    sum += digit * powerOfTwo;
+                }
+                decimalOctets.Add(sum.ToString());
             }
 
-            
-
-
-
-            Console.WriteLine($"Example: {binary} => {sum}");
-            return sum;
+            return string.Join(".", decimalOctets);
         }
     }
 }
