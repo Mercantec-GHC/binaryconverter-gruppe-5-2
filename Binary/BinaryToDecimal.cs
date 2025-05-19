@@ -12,7 +12,7 @@ namespace BinaryConverter
         {
             Console.WriteLine("Binary to Decimal Converter");
             Console.Write("Enter a binary IP address (format: 8 bits per octet, separated by dots): ");
-            string binaryIP = Console.ReadLine();
+            string binaryIP = Console.ReadLine();  //stores input
             if (string.IsNullOrEmpty(binaryIP) || !IsValidBinaryIP(binaryIP))
             {
                 Console.WriteLine("Invalid binary IP address. Please enter a valid format like 01111111.00000000.00000000.00000001.");
