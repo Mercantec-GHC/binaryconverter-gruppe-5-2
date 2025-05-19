@@ -11,6 +11,7 @@ namespace BinaryConverter
             Console.Write("Enter decimal IP (e.g. 192.168.1.1): ");
             string ip = Console.ReadLine();
 
+            //Input for a try and catch error
             try
             {
                 string binary = ConvertDecimalToBinary(ip);
@@ -31,18 +32,19 @@ namespace BinaryConverter
                 throw new FormatException();
             }
 
+            //Functions for showing,looping, and converting
             string binaryIP = "";
             foreach (string octet in octets)
             {
                 int num = int.Parse(octet);
                 string binary = "";
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < 8; i++)  
                 {
-                    int bit = num % 2;
-                    binary = bit + binary;
-                    num = num / 2;
+                    int bit = num % 2;  // used as a remainder
+                    binary = bit + binary;  //adds to string 
+                    num = num / 2;   //divides by 2
                 }
-                binaryIP += binary + ".";
+                binaryIP += binary + ".";  //adds dot for each line
             }
 
             return binaryIP.TrimEnd('.');
