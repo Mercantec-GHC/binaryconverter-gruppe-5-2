@@ -73,7 +73,6 @@ namespace BinaryConverter
 
                 return string.Join(".", decimalOctets); // Samler oktetterne med punktummer
             }
-        // lmao
          
             public static void Main()
             {
